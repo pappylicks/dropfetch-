@@ -5,8 +5,8 @@
   "description": "Local media downloader with automatic yt-dlp and FFmpeg bootstrap on Windows.",
   "main": "server.js",
   "scripts": {
-    "start": "node bootstrap.js",
-    "dev": "node bootstrap.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "engines": {
     "node": ">=20"

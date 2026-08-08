@@ -14,6 +14,11 @@ const PORT = Number(process.env.PORT || 4000);
 const ROOT = __dirname;
 const DOWNLOAD_DIR = path.join(ROOT, "downloads");
 const TEMP_DIR = path.join(ROOT, "temp");
+const COOKIES_PATH = path.join(ROOT, "cookies.txt");
+
+if (process.env.YOUTUBE_COOKIES) {
+  fs.writeFileSync(COOKIES_PATH, process.env.YOUTUBE_COOKIES);
+}
 
 fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
 fs.mkdirSync(TEMP_DIR, { recursive: true });

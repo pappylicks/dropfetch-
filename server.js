@@ -171,6 +171,7 @@ async function getInfo(url) {
   return new Promise((resolve, reject) => {
     const args = [
       "--dump-single-json",
+      "--extractor-args", "youtube:player_client=android,web", // <--- ADD THIS LINE
       "--js-runtimes", "node",
       "--no-warnings",
       "--skip-download",
@@ -256,12 +257,13 @@ async function runDownload(job) {
   }
 
   const args = [
-    "--dump-single-json",
-  "--extractor-args", "youtube:player_client=android,web",
-  "--no-warnings",
-  "--skip-download",
-  "--no-playlist",
-  "--",
+    "--no-playlist",
+    "--newline",
+    "--extractor-args", "youtube:player_client=android,web", // <--- ADD THIS LINE
+    "--js-runtimes", "node",
+    "--no-warnings",
+    "--restrict-filenames",
+    "-f", format,
   url
   ];
 

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DropFetch — Media Downloader</title>
+  <meta name="description" content="Clean local media downloader powered by yt-dlp.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">↓</span>
+        <span>DropFetch</span>
+      </a>
+      <div class="health" id="health"><span class="dot"></span> Checking tools…</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">FAST • LOCAL • CLEAN</div>
+        <h1>Paste a link.<br><span>Get your media.</span></h1>
+        <p>Video, audio and image downloads from URLs supported by yt-dlp. Preview the media before downloading.</p>
+
+        <form id="urlForm" class="download-box">
+          <div class="input-row">
+            <input id="url" type="url" autocomplete="off" placeholder="Paste a social media video or image URL…" required>
+            <button id="inspectBtn" type="submit">Analyze link</button>
+          </div>
+          <div class="hint">Only public HTTP/HTTPS URLs. Your files stay on this machine.</div>
+        </form>
+      </section>
+
+      <section id="preview" class="panel hidden">
+        <div class="preview-grid">
+          <div class="thumb-wrap">
+            <img id="thumb" alt="Media thumbnail">
+          </div>
+          <div class="preview-info">
+            <div class="source" id="source"></div>
+            <h2 id="title">Media</h2>
+            <div class="meta" id="meta"></div>
+
+            <div class="controls">
+              <label>
+                Quality
+                <select id="quality"></select>
+              </label>
+              <button id="downloadBtn" class="primary">Download</button>
+            </div>
+            <div id="previewError" class="error hidden"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="progressPanel" class="panel hidden">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">DOWNLOAD</div>
+            <h2 id="jobTitle">Preparing…</h2>
+          </div>
+          <button id="cancelBtn" class="ghost">Cancel</button>
+        </div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <div class="progress-row">
+          <strong id="percent">0%</strong>
+          <span id="speed">Waiting…</span>
+          <span id="eta"></span>
+        </div>
+        <div id="log" class="log"></div>
+        <a id="fileBtn" class="file-btn hidden" href="#" download>Save file</a>
+      </section>
+
+      <section class="features">
+        <article><div class="icon">◈</div><h3>Best available</h3><p>Automatically picks the best practical video + audio combination and merges to MP4 when possible.</p></article>
+        <article><div class="icon">⌁</div><h3>Image friendly</h3><p>For extractors that expose image media, the same URL workflow can retrieve the original available asset.</p></article>
+        <article><div class="icon">▣</div><h3>Local by default</h3><p>Downloads are written to this app's local <code>downloads</code> folder instead of being uploaded to a third-party server.</p></article>
+      </section>
+
+      <section class="history-section">
+        <div class="section-head">
+          <div><div class="eyebrow">LIBRARY</div><h2>Recent downloads</h2></div>
+          <button id="clearHistory" class="ghost">Clear library</button>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>DropFetch v1.0</span>
+      <span>Use only for media you are allowed to download.</span>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

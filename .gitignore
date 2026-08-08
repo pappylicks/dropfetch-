@@ -1,0 +1,10 @@
+node_modules/
+tools/*
+!tools/.gitkeep
+downloads/*
+!downloads/.gitkeep
+temp/*
+!temp/.gitkeep
+.bootstrap-tmp/
+.env
+.DS_Store

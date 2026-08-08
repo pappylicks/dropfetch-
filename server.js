@@ -256,19 +256,13 @@ async function runDownload(job) {
   }
 
   const args = [
-    "--no-playlist",
-    "--newline",
-    "--js-runtimes", "node",
-    "--no-warnings",
-    "--restrict-filenames",
-    "-f", format,
-    "--merge-output-format", "mp4",
-    "--retries", "3",
-    "--fragment-retries", "3",
-    "--concurrent-fragments", "4",
-    "-o", output,
-    "--",
-    job.url
+    "--dump-single-json",
+  "--extractor-args", "youtube:player_client=android,web",
+  "--no-warnings",
+  "--skip-download",
+  "--no-playlist",
+  "--",
+  url
   ];
 
   if (quality === "audio") {
